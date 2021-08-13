@@ -29,3 +29,21 @@ job_impressions_topic = app.topic(
     key_type=str,
     value_type=JobImpressionRecord
 )
+
+user_enriched_job_impression_topic = app.topic(
+    topics['user_enriched_job_impression'], 
+    partitions=1, 
+    retention=1, 
+    internal=True,
+    key_type=str,
+    value_type=JobImpressionRecord
+)
+
+fully_enriched_job_impression_topic = app.topic(
+    topics['enriched_job_impression'], 
+    partitions=1, 
+    retention=2, 
+    internal=True,
+    key_type=str,
+    value_type=JobImpressionRecord
+)
