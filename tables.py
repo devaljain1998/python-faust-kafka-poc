@@ -4,7 +4,8 @@ from records import UserRecord, JobRecord, JobImpressionRecord
 
 user_table = app.Table(
     name='user_table',
-    default=UserRecord
+    default=UserRecord,
+    partitions=3
 )
 
 job_table = app.Table(
