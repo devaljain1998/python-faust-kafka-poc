@@ -37,20 +37,20 @@ async def save_users(users):
         print(f'user_id:{user.id} :saved to: user_table')
 
 
-# @app.agent(jobs_topic)
-# async def save_jobs(jobs):
-#     """This function is used for saving jobs in the job table.
-#     Key: job_id Value: job (Record)
+@app.agent(jobs_topic)
+async def save_jobs(jobs):
+    """This function is used for saving jobs in the job table.
+    Key: job_id Value: job (Record)
 
-#     Args:
-#         jobs
-#     """
-
-#     # Creating jobs topic
-#     await jobs_topic.declare()
-#     # Processing:
-#     async for job in jobs:
-#         job_table[job.id] = job
+    Args:
+        jobs
+    """
+    # Creating jobs topic
+    await jobs_topic.declare()
+    # Processing:
+    async for job in jobs:
+        job_table[str(job.id)] = job
+        print(f'job_id:{job.id} :saved to: job_table')
 
 
 # @app.agent(job_impressions_topic)

@@ -10,5 +10,6 @@ user_table = app.Table(
 
 job_table = app.Table(
     name='job_table',
-    default=JobRecord
+    default=JobRecord,
+    partitions=1
 )
