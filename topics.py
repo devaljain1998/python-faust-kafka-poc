@@ -5,7 +5,7 @@ from records import UserRecord, JobRecord, JobImpressionRecord
 # Defining topics:
 users_topic = app.topic(
     topics['user'], 
-    partitions=3, 
+    partitions=8, 
     retention=7, 
     internal=True,
     key_type=str,
