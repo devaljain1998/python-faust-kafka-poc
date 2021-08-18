@@ -2,8 +2,7 @@ from faust import Record, serializers
 from faust.models import record
 
 class UserRecord(Record, serializer='json'):
-    id: str
-    username: str
+    id: int
     gender: str
     language: str
     
