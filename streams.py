@@ -6,6 +6,21 @@ from worker import app
 import records
 
 # Streams:
+
+# @app.agent(users_topic)
+# async def hi_users(users):
+#     """This function is used for saving users in the user table.
+#     Key: user_id Value: user (Record)
+
+#     Args:
+#         users
+#     """
+#     # Creating users topic
+#     await users_topic.declare()
+#     # Processing
+#     async for user in users:
+#         print(f'user:{user}')
+
 @app.agent(users_topic)
 async def save_users(users):
     """This function is used for saving users in the user table.
@@ -18,7 +33,7 @@ async def save_users(users):
     await users_topic.declare()
     # Processing
     async for user in users:
-        user_table[user.id] = user
+        user_table[str(user.id)] = user
         print(f'user_id:{user.id} :saved to: user_table')
 
 
