@@ -19,6 +19,7 @@ async def save_users(users):
     # Processing
     async for user in users:
         user_table[user.id] = user
+        print(f'user_id:{user.id} :saved to: user_table')
 
 
 # @app.agent(jobs_topic)
@@ -84,11 +85,11 @@ async def save_users(users):
 #         print(f'JobImpression: {impression.id} enriched: {impression}')
 
 # DEBUG-POC:
-qs_stream = app.topic('quickstart')
-@app.agent(qs_stream)
-async def qstart(stream):
-    async for event in stream:
-        print(f'Inside quickstart: {event}')
+# qs_stream = app.topic('quickstart')
+# @app.agent(qs_stream)
+# async def qstart(stream):
+#     async for event in stream:
+#         print(f'Inside quickstart: {event}')
         
 # interesting_topic = app.topic(
 #     'interesting', 
